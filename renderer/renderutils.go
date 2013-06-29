@@ -33,17 +33,3 @@ func RelationalObject () {
     // scaling, translations, etc. can be computed by relative values
 }
 
-func LoadFileTypeObj(filename string) {
-    rdr := bufio.NewReader(os.Stdin)
-    switch line, err := rdr.ReadString('\n'); err {
-    case nil:
-        switch line {
-        case strings.HasPrefix(line, "v "): //vertex
-        case strings.HasPrefix(line, "f "): //face
-        case strings.HasPrefix(line, "#"):
-        }
-    case io.EOF:
-    default:
-    };
-}
-

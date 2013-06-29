@@ -17,7 +17,8 @@ type Window struct {
     KeyEvt func() (interface{})
     CharEvt func() (interface{})
     // should we also have peek accessors?
-    render func()
+    // these should be slices
+    Render func()
     Start func()
 }
 
@@ -109,7 +110,7 @@ func CreateWindow(width int, height int, title string) (*Window){
         defer glfw.CloseWindow()
         running := true
         for running {
-            //window.render()
+            window.Render()
             glfw.SwapBuffers()
             // Break out of loop when Escape key is pressed, or window is closed.
             running = glfw.Key(glfw.KeyEsc) == 0 && glfw.WindowParam(glfw.Opened) == 1

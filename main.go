@@ -12,6 +12,7 @@ import (
 func main() {
     win := ui.CreateWindow(600, 400, "test")
     win.Render(func (){
+
     })
     win.Start()
 }
