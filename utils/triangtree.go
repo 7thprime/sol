@@ -20,6 +20,10 @@ type TriaTree struct {
 
 // Accepts three points within the space
 // Points form the initial layout of the dataset
+// New points are triangulated from the initial three
+// They then traverse down the set of new triangles formed by the next point
+// Points are then inserted into the triangulation network (effectively a linked list)
+//  at the point where they fit
 func (oct *Octree) create () {
 
 }

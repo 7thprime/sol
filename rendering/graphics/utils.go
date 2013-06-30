@@ -1,4 +1,4 @@
-package renderutils
+package graphics
 
 import (
     "bufio"

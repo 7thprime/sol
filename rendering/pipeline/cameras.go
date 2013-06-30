@@ -1,5 +1,9 @@
 package renderer
 
+import (
+
+)
+
 type Perspective struct{
     Enabled bool
     FovY struct {
@@ -8,4 +12,10 @@ type Perspective struct{
     }
     ZFar float64
     ZNear float64
+}
+
+// stores current perspective position of the scene
+type Camera struct {
+    Perspective renderer.Perspective
+    Object3D Object3D
 }

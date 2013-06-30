@@ -1,4 +1,4 @@
-package ui
+package window
 
 import (
     "container/list"
@@ -36,11 +36,11 @@ type deltaEvent struct {
     delta int
 }
 
-func CreateWindow(width int, height int, title string) (*Window){
+func New(width int, height int, title string) (*Window){
 	var err error
     window := &Window{width: width, height: height, title: title}
     // initialize logger
-    logf, err := os.OpenFile("./logs/window.log", os.O_WRONLY|os.O_CREATE, 0640)
+    logf, err := os.OpenFile("window.log", os.O_WRONLY|os.O_CREATE, 0640)
     logger := log.New(logf, "", log.Ldate|log.Ltime)
 
 	if err = glfw.Init(); err != nil {
@@ -53,12 +53,6 @@ func CreateWindow(width int, height int, title string) (*Window){
         fmt.Fprintf(os.Stderr, "[e] %v\n", err)
         return nil
     }
-
-	// Enable vertical sync on cards that support it.
-	glfw.SetSwapInterval(1)
-
-	// Set window title
-	glfw.SetWindowTitle(title)
 
     onResize := func(w, h int) {
         logger.Printf("resized: %dx%d\n", w, h)
@@ -96,6 +90,9 @@ func CreateWindow(width int, height int, title string) (*Window){
             logger.Printf("%s delta: %d\n", device, delta)
         }
     }
+
+	glfw.SetSwapInterval(1)
+	glfw.SetWindowTitle(title)
 
 	glfw.SetWindowSizeCallback(onResize)
 	glfw.SetWindowCloseCallback(onClose)

@@ -1,4 +1,4 @@
-package primitives
+package graphics
 
 import (
 
@@ -15,8 +15,10 @@ func Cube (x double)  {
     gl.End()
 }
 
-func Cylinder (x) {
+func Sphere (x) {
 
 }
 
+func Cylinder (x) {
 
+}

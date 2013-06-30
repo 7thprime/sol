@@ -6,11 +6,13 @@
 package main
 
 import (
-    "sol/ui"
+    "sol/rendering/renderer"
+    "sol/window"
 )
 
 func main() {
-    win := ui.CreateWindow(600, 400, "test")
+    win := window.New(600, 400, "test")
+    renderer := renderer.New()
     win.Render(func (){
 
     })

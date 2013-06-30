@@ -32,7 +32,7 @@ func (oct *Octree) containingPoint (point unum.Vec3) (int) {
     return oct
 }
 
-func (oct *Octree) insert (point OctreeNode) {
+func (oct *Octree) Insert (point OctreePoint) {
     if(oct.isLeafNode()){
         if(oct.Point == NULL){
             oct.Point = point;
@@ -68,7 +68,7 @@ func (oct *Octree) insert (point OctreeNode) {
     }
 }
 
-func (oct *Octree) getPointsBox (bmin unum.Vec3, bmax unum.Vec3, points []OctreePoint) {
+func (oct *Octree) GetPointsInBox (bmin unum.Vec3, bmax unum.Vec3, points []OctreePoint) {
     if(oct.isLeafNode()){
         if(oct.Point != NULL){
             p := oct.Point.Pos
