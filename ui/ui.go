@@ -40,7 +40,7 @@ func CreateWindow(width int, height int, title string) (*Window){
 	var err error
     window := &Window{width: width, height: height, title: title}
     // initialize logger
-    logf, err := os.OpenFile("window.log", os.O_WRONLY|os.O_CREATE, 0640)
+    logf, err := os.OpenFile("./logs/window.log", os.O_WRONLY|os.O_CREATE, 0640)
     logger := log.New(logf, "", log.Ldate|log.Ltime)
 
 	if err = glfw.Init(); err != nil {
